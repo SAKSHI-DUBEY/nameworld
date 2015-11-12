@@ -24,7 +24,7 @@ $row = 1;
 	{
 		echo "Name";
 		echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount<br /> ";
-	
+		echo"<TABLE>";
 		$gender=$_POST['gen'];
 		$top=$_POST['top'];
 		if($gender=="female"||$gender=="male")
@@ -39,15 +39,16 @@ $row = 1;
         		$row++;
         		for ($c=0; $c < 1; $c++) 
 			{
-            		echo $data[$c]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            		echo"<TR><TD> $data[$c]&nbsp;&nbsp;&nbsp;&nbsp;</TD>";
         		}
 			for ($c=1; $c < 2; $c++) 
 			{
-           		echo $data[$c] . "<br />\n";
+           		echo"<TD> $data[$c] </TD></TR>";
         		}
    		 }
     		fclose($handle);
 		}
+		echo"</TABLE>";
 	}
 	else
 	{
@@ -61,11 +62,11 @@ $row = 1;
        			$row++;
         		for ($c=0; $c < 1; $c++) 
 			{
-            			echo $data[$c]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            			echo"<TR><TD> $data[$c]&nbsp;&nbsp;&nbsp;&nbsp;</TD>";
         		}
 			for ($c=1; $c < 2; $c++) 
 			{
-            			echo $data[$c] . "<br />\n";
+            			echo"<TD> $data[$c] </TD></TR>";
         		}
     		}
    		 fclose($handle);
@@ -82,15 +83,16 @@ $i=0;
         		$row++;
      		   	for ($c=0; $c < 1; $c++) 
 			{
-            			echo $data[$c]."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            			echo"<TR><TD> $data[$c]&nbsp;&nbsp;&nbsp;&nbsp;</TD>";
        			}
 			for ($c=1; $c < 2; $c++) 
 			{
-            			echo $data[$c] . "<br />\n";
+				echo"<TD> $data[$c] </TD></TR>";
         		}
     		}
     		fclose($handle);
 	}
+			echo"</TABLE>";
 }
 }
 ?>
