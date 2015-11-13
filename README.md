@@ -71,8 +71,13 @@ $row = 1;
     		}
    		 fclose($handle);
 	}
+	echo"</TABLE>";
+	echo"&nbsp;&nbsp;&nbsp;&nbsp;FEMALES <br />\n";
 $i=0;
 	$file="male_cy".$_POST['year']."_top.csv";
+	echo"<br />\n<br />\n<TABLE>";
+		echo "Name";
+		echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount<br /> ";
 	if (($handle = fopen($file, "r")) !== FALSE) 
 	{
 		fgetcsv($handle, 1000, ",");
@@ -92,7 +97,8 @@ $i=0;
     		}
     		fclose($handle);
 	}
-			echo"</TABLE>";
+	echo"</TABLE>";
+	echo"&nbsp;&nbsp;&nbsp;&nbsp;MALES <br />\n";
 }
 }
 ?>
