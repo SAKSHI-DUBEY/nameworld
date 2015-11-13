@@ -1,6 +1,7 @@
 # nameworld
 <html>
 <body>
+<center>
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 
 Year: <input type="text" id="year" name="year" required>
@@ -102,5 +103,6 @@ $i=0;
 }
 }
 ?>
+</center>
 </body>
 </html>
