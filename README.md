@@ -103,6 +103,63 @@ $i=0;
 }
 }
 ?>
+
+<form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
+Name: <input type="text" name="name" required/>
+Year: <input type="text" name="year" required/>
+Gender: <select id="gen" name="gen">
+		<option value="male">Male</option>
+		<option value="female">Female</option>
+		</select>	
+<input type="submit" value="Submit" name="Submit">
+</form>
+
+
+<?php
+
+if(isset($_POST['Submit'])) 
+	{
+		$yes=1;
+		$name=$_POST['name'];
+		$gender=$_POST['gen'];
+		$year=$_POST['year'];
+		$plotdata=array(array('0000','sds'));
+		$values=array();
+		$data;
+		$total=0;
+		while($year<2014)
+		{
+		$file=$gender."_cy".$year."_top.csv";
+		if (($handle = fopen($file, "r")) !== FALSE) 
+		{
+			fgetcsv($handle);
+			$count=0;
+				while(($data = fgetcsv($handle)) !== FALSE ) 
+				{
+					
+					if(((strcmp($name,$data[0]))==0)||((strstr($data[0],$name))!== FALSE))
+					{
+						echo $data[0]."   ".$data[1]."   ".$data[2]."   ";
+						if($count==0)
+						{$values[$year]=$data[1];$count++;}
+					else
+					$values[$year]+=$data[1];
+									#print_r($data);
+									$total++;
+
+					$yes=0;
+					}
+				}
+
+		}
+		$year++;
+   		 fclose($handle);
+		} 
+	if($yes)
+	echo "No Record Found!!!";
+}
+?>
+
 </center>
 </body>
 </html>
