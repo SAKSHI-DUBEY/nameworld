@@ -1,7 +1,49 @@
 # nameworld
 <html>
 <body>
-<center>
+<head>
+	<title> dream names </title>
+<style>
+#header {
+    background-color:BLACK;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#PART1 {
+    background-color:LIGHTGREEN;
+    color:PURPLE;
+    text-align:center;
+    padding:5px;
+}
+#footer {
+    background-color:BLACK;
+    color:GREY;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}
+</style>
+
+</head>
+<body STYLE="BACKGROUND-COLOR:DARKGREEN";>
+<CENTER>
+<div id="header">
+<h1 font="times new roman" color="blue"> DREAM NAMES </H1>
+</DIV>
+</CENTER>
+<br>
+<br>
+
+
+<br>
+<br>
+<CENTER>
+<div id="PART1">
+
+<H3><P STYLE ="TEXT-ALIGN:CENTER" STYLE="FONT-SIZE:600%">FIND NAMES RANKING IN YEAR...</P></H3>
+
+<form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 
 Year: <input type="text" id="year" name="year" required>
@@ -23,9 +65,13 @@ Gender: <select id="gen" name="gen">
 $row = 1;
 	if(isset($_POST['submit'])) 
 	{
-		echo "Name";
-		echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount<br /> ";
-		echo"<TABLE>";
+		
+		echo"<center>";
+		echo "<table border=1 cellspacing=0 cellpading=10 columnwidth=20>";
+		echo "<tr><th>NAME</th>";
+		echo "<th>AMOUNT</th>";
+		echo "<th>RANK</th></tr> ";
+	
 		$gender=$_POST['gen'];
 		$top=$_POST['top'];
 		if($gender=="female"||$gender=="male")
@@ -40,16 +86,22 @@ $row = 1;
         		$row++;
         		for ($c=0; $c < 1; $c++) 
 			{
-            		echo"<TR><TD> $data[$c]&nbsp;&nbsp;&nbsp;&nbsp;</TD>";
+            		echo"<TR><TD> $data[$c]</TD>";
         		}
 			for ($c=1; $c < 2; $c++) 
 			{
-           		echo"<TD> $data[$c] </TD></TR>";
+           		echo"<TD> $data[$c] </TD>";
+        		}
+        		
+			for ($c=2; $c < 3; $c++) 
+			{
+            		echo "<td> $data[$c] </td></tr>";
         		}
    		 }
     		fclose($handle);
+    		echo"</TABLE>";
 		}
-		echo"</TABLE>";
+		
 	}
 	else
 	{
@@ -63,22 +115,32 @@ $row = 1;
        			$row++;
         		for ($c=0; $c < 1; $c++) 
 			{
-            			echo"<TR><TD> $data[$c]&nbsp;&nbsp;&nbsp;&nbsp;</TD>";
+            			echo"<TR><TD> $data[$c]</TD>";
         		}
 			for ($c=1; $c < 2; $c++) 
 			{
-            			echo"<TD> $data[$c] </TD></TR>";
+            			echo"<TD> $data[$c] </TD>";
         		}
+        		
+			for ($c=2; $c < 3; $c++)
+			{
+			 echo "<td> $data[$c] </td></tr>";
+			 }
     		}
    		 fclose($handle);
-	}
-	echo"</TABLE>";
+   		 	echo"</TABLE>";
 	echo"&nbsp;&nbsp;&nbsp;&nbsp;FEMALES <br />\n";
+	}
+
 $i=0;
+	echo "<table border=1 cellspacing=0 cellpading=10 columnwidth=20>";
+		echo"<br />\n<br />\n";
+		echo "<tr><th>NAME</th>";
+		echo "<th>AMOUNT</th>";
+		echo "<th>RANK</th></tr> ";
+	
 	$file="male_cy".$_POST['year']."_top.csv";
-	echo"<br />\n<br />\n<TABLE>";
-		echo "Name";
-		echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Amount<br /> ";
+	
 	if (($handle = fopen($file, "r")) !== FALSE) 
 	{
 		fgetcsv($handle, 1000, ",");
@@ -89,20 +151,44 @@ $i=0;
         		$row++;
      		   	for ($c=0; $c < 1; $c++) 
 			{
-            			echo"<TR><TD> $data[$c]&nbsp;&nbsp;&nbsp;&nbsp;</TD>";
+            			echo"<TR><TD> $data[$c]</TD>";
        			}
 			for ($c=1; $c < 2; $c++) 
 			{
-				echo"<TD> $data[$c] </TD></TR>";
+				echo"<TD> $data[$c] </TD>";
         		}
+        		
+			for ($c=2; $c < 3; $c++)
+			{
+		         echo "<td> $data[$c] </td></tr>";
+			 }
+	
     		}
     		fclose($handle);
+    		echo"</TABLE>";
+		echo"&nbsp;&nbsp;&nbsp;&nbsp;MALES <br />\n";
 	}
-	echo"</TABLE>";
-	echo"&nbsp;&nbsp;&nbsp;&nbsp;MALES <br />\n";
+	
 }
 }
 ?>
+<br>
+<br>
+
+</DIV>
+</CENTER>
+<BR>
+<BR>
+
+<CENTER>
+<div id="PART1">
+
+
+<br>
+<br>
+
+<H3><P STYLE ="TEXT-ALIGN:CENTER" STYLE="FONT-SIZE:600%">CHECK POPULARITY CHANGE IN THE NAME...</P></H3>
+
 
 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 Name: <input type="text" name="name" required/>
@@ -234,7 +320,16 @@ if(isset($_POST['Submit']))
 }
 }
 ?>
+<br>
+<br></DIV>
+</CENTER>
 
-</center>
+<BR>
+<BR><BR>
+<BR>
+<DIV ID="FOOTER">
+
+<H2>DO VISIT AGAIN </H2>
+</DIV>
 </body>
 </html>
