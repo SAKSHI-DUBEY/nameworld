@@ -62,18 +62,17 @@ Gender: <select id="gen" name="gen">
 		<input type="submit" value="Submit" name="submit">
 		<br />
 </form>
-
+<!----DISPLAYING LIST IN THE FORM OF TABLE---->
 <?php
-#----DISPLAYING LIST IN THE FORM OF TABLE----
 $row = 1;
 	if(isset($_POST['submit'])) 
 	{
+		
 		echo"<center>";
 		echo "<table border=1 cellspacing=0 cellpading=10 columnwidth=20>";
 		echo "<tr><th>NAME</th>";
 		echo "<th>AMOUNT</th>";
 		echo "<th>RANK</th></tr> ";
-	
 		$gender=$_POST['gen'];
 		$top=$_POST['top'];
 		if($gender=="female"||$gender=="male")
@@ -86,30 +85,24 @@ $row = 1;
 			while (($data = fgetcsv($handle, 1000, ",")) !== FALSE && $i<$top) 
 			{
 				$i++;
-        			$num = count($data);
+       				$num = count($data);
         			$row++;
-	 
-
         			for ($c=0; $c < 1; $c++) 
 				{
-            				echo " <tr> <td> $data[$c]</td>";
-        `			}
-
+            			echo"<TR><TD> $data[$c]</TD>";
+        			}
 				for ($c=1; $c < 2; $c++) 
 				{
-            				echo "<td> $data[$c] </td>";
-				}
-	
+           			echo"<TD> $data[$c] </TD>";
+        			}
 				for ($c=2; $c < 3; $c++) 
 				{
-            				echo "<td> $data[$c] </td></tr>";
+            			echo "<td> $data[$c] </td></tr>";
         			}
-	
-
-    			}
-		echo"</table>";
+   		 	}
     		fclose($handle);
 		}
+		echo"</TABLE>";
 		}
 		else
 		{
@@ -117,8 +110,10 @@ $row = 1;
 		$file="female_cy".$_POST['year']."_top.csv";
 		if (($handle = fopen($file, "r")) !== FALSE) 
 		{
+		
 			fgetcsv($handle, 1000, ",");
-			while (($data = fgetcsv($handle, 1000, ",")) !== FALSE && $i<$top) {
+			while (($data = fgetcsv($handle, 1000, ",")) !== FALSE && $i<$top) 
+			{
 			$i++;
         		$num = count($data);
         		$row++;
